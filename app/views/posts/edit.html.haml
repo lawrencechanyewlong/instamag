@@ -1,0 +1,5 @@
+.text-center
+    =image_tag @post.image.url(:medium)
+=render '/shared/form'
+.text-center
+    =link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } 
