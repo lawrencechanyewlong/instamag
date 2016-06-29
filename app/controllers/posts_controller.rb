@@ -12,9 +12,12 @@ class PostsController < ApplicationController
     end
     
     def create
+        
         @post = current_user.posts.build(post_params)
         
-        if @post.save
+        
+        if (post_params[:caption].length >= 3 && post_params[:caption].length <= 300 )
+            @post.save
             flash[:success] = "Your post has been successfully created!"
             redirect_to posts_path
         else
